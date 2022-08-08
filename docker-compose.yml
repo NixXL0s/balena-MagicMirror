@@ -1,6 +1,6 @@
 version: '2.1'
 services:
-  Browser:
+  'Browser':
     restart: always
     build: ./balena-wpe
     privileged: true
