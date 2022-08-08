@@ -1,9 +1,9 @@
-FROM bastilimbach/docker-magicmirror:raspberry
+FROM bastilimbach/docker-magicmirror:latest
 
 COPY ./config /opt/magic_mirror/config
 COPY ./modules /opt/magic_mirror/modules
-COPY ./moduleInstall.sh /opt
 
-RUN chmod +x /opt/moduleInstall.sh
-RUN /opt/moduleInstall.sh
-RUN apt-get update && apt-get install -y libraspberrypi-bin
+COPY moduleInstall.sh /opt/moduleInstall.sh
+
+#RUN ./opt/moduleInstall.sh
+RUN apt-get update

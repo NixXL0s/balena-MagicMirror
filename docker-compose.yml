@@ -1,15 +1,14 @@
 version: '2.1'
 services:
-  Browser:
+  browser:
     restart: always
     build: "./balena-wpe"
     privileged: true
     network_mode: host
     environment:
-      INITSYSTE: on
-      WPE_URL: http://localhost:90
+      WPE_URL: http://localhost:80
     depends_on:
-      - MagicMirror
+      - magicmirror
     # Don't use healthcheck, it won't work for some reason: https://github.com/balena-io-projects/balena-wpe/issues/51
     command: >
       /bin/bash -c "
@@ -22,9 +21,9 @@ services:
         echo 'MagicMirror up, starting the Browser now!';
         /wpe-init
       "
-    #healthcheck:
-    #  test: ["CMD", "wget", "-q", "-O", "/dev/null", "$WPE_URL"]
-  MagicMirror:
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "$WPE_URL"]
+  magicmirror:
     restart: always
     build: ./MagicMirror
     privileged: true
