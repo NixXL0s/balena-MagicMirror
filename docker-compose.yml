@@ -2,7 +2,7 @@ version: '2.1'
 services:
   Browser:
     restart: always
-    build: ./balena-wpe
+    build: "./balena-wpe"
     privileged: true
     network_mode: host
     environment:
