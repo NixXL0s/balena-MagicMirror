@@ -21,7 +21,7 @@ var config = {
                                                            // or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
                                                            // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
 
-    language: "en",
+    language: "de",
     timeFormat: 24,
     units: "metric",
 
